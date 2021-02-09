@@ -1,0 +1,123 @@
+# start the game method!
+def start_game()
+	puts "Welcome to Math flashcards!"
+	puts "which cards would you like? (add|substract|multiply|divide)"
+	game = gets.chomp.downcase
+
+	if game == "add"
+		# Call addition method
+		add_flashcards
+	elsif game == "substract"
+		# Call substract method
+		substract_flashcards
+	elsif game == "multiply"
+		# Call multiply method
+		multiply_flashcards
+	elsif game == "divide"
+		# Call divide method
+		divide_flashcards
+	else
+		puts "Sorry I did not understood, please hit enter and try again"
+		gets
+		start_game
+	end
+end
+# Start Addition Flashcards Method
+def add_flashcards()
+	numb_1 = Random.rand(0..10)
+	numb_2 = Random.rand(0..10)
+	correct_answer = numb_1 + numb_2
+
+	puts "What is #{numb_1} + #{numb_2}?"
+	user_answer = gets.chomp.to_i
+	if user_answer == correct_answer
+		puts "GREAT, #{numb_1} + #{numb_2} = #{correct_answer}"
+	else
+		puts "Noooo, #{numb_1} + #{numb_2} = #{correct_answer}"
+	end
+	puts "would you like to play again? (y/n/restart)"
+	play_again = gets.chomp.downcase
+	if play_again == "y"
+		add_flashcards
+	elsif play_again == "restart"
+		start_game
+	else
+		exit
+	end
+end
+
+# Start Substraction Flashcards Method
+def substract_flashcards()
+	numb_1 = Random.rand(0..10)
+	# Cambia de 0 a 1, porque si dividimos entre 0 habrá un error
+	numb_2 = Random.rand(1..10)
+	correct_answer = numb_1 - numb_2
+
+	puts "What is #{numb_1} - #{numb_2}?"
+	user_answer = gets.chomp.to_i
+	if user_answer == correct_answer
+		puts "GREAT, #{numb_1} - #{numb_2} = #{correct_answer}"
+	else
+		puts "Noooo, #{numb_1} - #{numb_2} = #{correct_answer}"
+	end
+	puts "would you like to play again? (y/n/restart)"
+	play_again = gets.chomp.downcase
+	if play_again == "y"
+		substract_flashcards
+	elsif play_again == "restart"
+		start_game
+	else
+		exit
+	end
+end
+
+# Start Multiply Flashcards Method
+def multiply_flashcards()
+	numb_1 = Random.rand(0..10)
+	numb_2 = Random.rand(0..10)
+	correct_answer = numb_1 * numb_2
+
+	puts "What is #{numb_1} * #{numb_2}?"
+	user_answer = gets.chomp.to_i
+	if user_answer == correct_answer
+		puts "GREAT, #{numb_1} * #{numb_2} = #{correct_answer}"
+	else
+		puts "Noooo, #{numb_1} * #{numb_2} = #{correct_answer}"
+	end
+	puts "would you like to play again? (y/n/restart)"
+	play_again = gets.chomp.downcase
+	if play_again == "y"
+		multiply_flashcards
+	elsif play_again == "restart"
+		start_game
+	else
+		exit
+	end
+end
+
+# Start Divide Flashcards Method
+def divide_flashcards()
+	numb_1 = Random.rand(0..10)
+	numb_2 = Random.rand(0..10)
+	correct_answer = (numb_1 / numb_2)
+
+	puts "What is #{numb_1} / #{numb_2}? (round)"
+	user_answer = gets.chomp.to_i
+	if user_answer == correct_answer
+		puts "GREAT, #{numb_1} + #{numb_2} = #{correct_answer}"
+	else
+		puts "Noooo, #{numb_1} + #{numb_2} = #{correct_answer}"
+	end
+	puts "would you like to play again? (y/n/restart)"
+	play_again = gets.chomp.downcase
+	if play_again == "y"
+		divide_flashcards
+	elsif play_again == "restart"
+		start_game
+	else
+		exit
+	end
+end
+
+# start the actual game, call start_game method
+start_game
